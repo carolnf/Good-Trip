@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  
+
+<ion-card>
+  <ion-card-header>
+    <h1><b>Restaurantes</b></h1>
+    <ion-card-subtitle>Fortaleza CE</ion-card-subtitle>
+    <ion-card-title>Vojnilô</ion-card-title>
+  </ion-card-header>
+
+
+
+  <ion-slides pager="true"  [options]="option" class="ion-margin-top">
+    
+    
+  <ion-slide>
+    <ion-card>
+      <img src="assets/restaurante.jpg">
+    </ion-card>
+  </ion-slide>
+  
+  <ion-slide>
+    <ion-card>
+      <img src="assets/restaurante2.jpg">
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <img src="assets/restaurante3.jpg">
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <img src="assets/restaurante4.jpg">
+    </ion-card>
+  </ion-slide>
+
+</ion-slides>
+
+<ion-card-content>
+Fortaleza é a capital do estado do Ceará, no Nordeste brasileiro. A cidade é conhecida por suas praias,
+ com falésias vermelhas, palmeiras, dunas e lagoas. As tradições folclóricas da cidade podem ser vistas
+  em apresentações de dança no Theatro José de Alencar, construção em estilo art nouveau inaugurada em 
+  1910.
+  <img src="assets/restaurante9.jpg">
+  </ion-card-content>
+  
+  <ion-card-content>
+  Lagosta, caranguejo, pargo. Os pescados e frutos do mar certamente são as estrelas da culinária de 
+  Fortaleza e outras regiões do litoral do Ceará. Quem visita a região não deve deixar de experimentar 
+  a tradicional peixada cearense, criada para recuperar as forças dos jangadeiros que voltavam do alto-mar.
+   O prato leva repolho, cebola, cenoura, batatas, tomate e peixe, com leite de coco natural. Para experimentar
+    a delícia, o GUIA QUATRO RODAS recomenda restaurantes como Colher de Pau e Coco Bambu Frutos do Mar. 
+  </ion-card-content>
+   
+
+</ion-card>
+  
+<h4><b>O Vojnilô se encontra no endereço :</b></h4>R. Frederico Borges, 409 - Varjota, Fortaleza - CE, 60175-040 
+Horário de funcionamento: de segunda à quarta (Fechado), quinta de 17:00h às 00:00h, de sexta à domingo de 11:00h às 20:00h
+Telefone: (85) 3234.6094
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3981.3521867335153!2d-38.4890782!3d-3.7331931!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7487eb748fdcf%3A0xecaad03af901babc!2zVm9qbmlsw7Q!5e0!3m2!1spt-BR!2sbr!4v1628040743306!5m2!1spt-BR!2sbr" 
+width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+<ion-content class="ion-padding-horizontal">
+
+ 
+
+  <hr style="border-bottom: 3px dotted grey !important;">
+ 
+  <h4>Comente aqui abaixo:</h4>
+  <input type="hidden" name="uId" [(ngModel)]="uId">
+  <input type="hidden" name="uName" [(ngModel)]="uName">
+  <input type="hidden" name="uEmail" [(ngModel)]="uEmail">
+  <ion-textarea autoGrow="true" name="uComment" [(ngModel)]="uComment" style="border: 1px solid grey"></ion-textarea>
+   <ion-button color="primary" size="small" (click)="sendComment()">
+    Enviar
+  </ion-button><small>&nbsp; &nbsp; &nbsp; Somente texto.</small>
+
+  <hr style="margin-top: 1rem;border-bottom: 3px dotted grey !important;">
+  <h4>Comentários</h4>
+
+  <div *ngFor="let comment of comments | async">
+    <ion-card class="ion-no-margin ion-margin-vertical">
+      <ion-card-header>
+        <ion-card-subtitle>{{comment.name}} em {{comment.date | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>{{comment.comment}}</ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+  <p>
+    <ion-button expand="block" color="warning" routerLink="/post">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Voltar para os Posts
+    </ion-button>
+  </p>
+
+
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+
+
+

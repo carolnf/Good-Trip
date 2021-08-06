@@ -1,0 +1,78 @@
+<!-- Header -->
+
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/teste.png" style="width: 130px; height: 50px;" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  <h1><b>Favoritos</b></h1>
+
+    <img src="assets/natal.png" style="width: 50px; height: 50px;" alt="Natal">
+      <div>
+        <b>Natal</b>
+      </div>
+  <hr>
+    <img src="assets/maceio.png" style="width: 50px; height: 50px;" alt="Maceió">
+      <div>
+        <b>Maceió</b>
+      </div>
+  <hr>
+    <img src="assets/ceara.png" style="width: 50px; height: 50px;" alt="Ceará">
+      <div>
+        <b>Ceará</b>
+      </div>
+  <hr>
+    <img src="assets/fortaleza.png" style="width: 50px; height: 50px;" alt="Fortaleza">
+      <div>
+        <b>Fortaleza</b>
+      </div>
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,101 @@
+<!-- Header -->
+
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/teste.png" style="width: 130px; height: 50px;" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  <h1><b>Buscar</b></h1>
+
+  <!-- Searchbar disabled -->
+<ion-searchbar disabled="true" placeholder="Aonde quer ir?"></ion-searchbar>
+
+<h4><b>Locais próximos a você</b></h4>
+
+<img src="assets/pqlage.png" style="width: 50px; height: 50px;" alt="Parque Lage">
+<div>
+<b>Parque Lage</b>
+</div>
+<hr>
+<img src="assets/jd.png" style="width: 50px; height: 50px;" alt="Jardim Botânco">
+<div>
+<b>Jardim Botânco</b>
+</div>
+<hr>
+<img src="assets/cr.png" style="width: 50px; height: 50px;" alt="Cristo Redentor">
+<div>
+<b>Cristo Redentor</b>
+</div>
+<hr>
+
+<h4><b>Locais que você possa gostar</b></h4>
+
+<img src="assets/rj.png" style="width: 50px; height: 50px;" alt="Rio de Janeiro">
+<div>
+<b>Rio de Janeiro</b>
+</div>
+<hr>
+<img src="assets/sp.png" style="width: 50px; height: 50px;" alt="São Paulo">
+<div>
+<b>São Paulo</b>
+</div>
+<hr>
+<img src="assets/salvador.png" style="width: 50px; height: 50px;" alt="Salvador">
+<div>
+<b>Salvador</b>
+</div>
+
+
+
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

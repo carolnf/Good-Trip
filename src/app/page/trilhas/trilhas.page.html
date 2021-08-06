@@ -1,0 +1,173 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  
+
+  <ion-card>
+    <ion-card-header>
+      <h1><b>Trilhas e Travessias</b></h1>
+      <ion-card-subtitle>Maranhão MA</ion-card-subtitle>
+      <ion-card-title>Parque Nacional dos Lençóis Maranhenses</ion-card-title>
+    </ion-card-header>
+
+
+
+
+  <ion-slides pager="true"  [options]="option" class="ion-margin-top">
+    
+    
+  <ion-slide>
+    <ion-card>
+      <img src="assets/trilha10.jpg">
+    </ion-card>
+  </ion-slide>
+  
+  <ion-slide>
+    <ion-card>
+      <img src="assets/trilha11.jpg">
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <img src="assets/trilha2.jpg">
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <img src="assets/trilha3.jpg">
+    </ion-card>
+  </ion-slide>
+
+</ion-slides>
+
+<ion-card-content>
+  A emoção ao avistar pela primeira vez as lagoas dos Lençóis Maranhenses é inexplicável. Difícil descrever a 
+  imensidão da paisagem e a felicidade que toma conta dos viajantes a cada nova lagoa que aparece em meio
+   às dunas do Parque Nacional dos Lençóis Maranhenses. Nenhum cenário do mundo se compara ao que encontramos
+    por lá. Na verdade, os Lençóis Maranhenses são únicos! É tanta beleza que se torna impossível não se
+     apaixonar. E como acontece com todos que mergulham nas maravilhosas lagoas de água doce cercadas por
+      grandes dunas de areia branquinha, nós também nos apaixonamos!
+  <img src="assets/trilha22.jpg">
+  </ion-card-content>
+  
+  <ion-card-content>
+    Os Lençóis Maranhenses, no estado do Maranhão, é uma região já muito bem conhecida como um dos destinos
+    brasileiros mais exuberantes e ricas em paisagens naturais, portanto, a travessia que percorre esse 
+    parque nacional é uma das melhores e mais incríveis maneiras de conhecer tudo que esse lugar tem para
+     oferecer.
+  </ion-card-content>
+
+
+  <ion-card-content>
+  Para os viajantes que desejam ir direto a Atins, será obrigatório passar por Barreirinhas, onde há serviço
+   de transfer via terrestre e via rio até Atins. O povoado de Atins está localizado entre o mar e o Rio 
+   Preguiças. A maneira mais rápida de ir de Barreirinhas para Atins é de lancha, saindo do porto de
+    Barreirinhas.
+
+A Satur Turismo e a K-Beça Turismo realizam o trajeto, com 40 minutos de duração, por R$ 70. O horário de
+ partida de Barreirinhas é entre 7h e 10h da manhã. Para quem busca a opção mais econômica, o melhor é o
+ transporte de linha em Toyotas 4 x 4. O horário comum de saída é entre 9h e 11h, a viagem tem duração de 
+ 1h30 e é bastante desconfortável. O custo, por pessoa, é de R$ 40. As Toyotas podem ser encontradas no 
+ Centro de Barreirinhas, próximas à Agropecuária Correa. Outra opção é fazer um passeio de Barreirinhas 
+ para Atins e já ficar por lá ao final do dia.
+
+Vale dizer que nos três casos as pousadas podem auxiliar na indicação de serviços de transfer. A depender da
+ temporada, os serviços podem sofrer alteração de frequência, preço e horário. Veja mais detalhes sobre como
+  chegar aos Lençóis Maranhenses e também como se locomover entre as bases principais.
+  <img src="assets/trilha33.jpg">
+</ion-card-content>
+
+</ion-card>
+  
+<h4><b>Parque Nacional dos Lençóis Maranhenses se encontra no endereço:</b></h4>Barreirinhas - MA, 65590-000
+Telefone: (98) 3349-1267
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.063488530971!2d-43.130595685244145!3d-2.4859384981884864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f19ee15e39be5f%3A0x2d2895d0d57e9beb!2sParque%20Nacional%20dos%20Len%C3%A7%C3%B3is%20Maranhenses!5e0!3m2!1spt-BR!2sbr!4v1628191678959!5m2!1spt-BR!2sbr" 
+width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+<ion-content class="ion-padding-horizontal">
+
+ 
+
+  <hr style="border-bottom: 3px dotted grey !important;">
+ 
+  <h4>Comente o que você achou aqui abaixo:</h4>
+  <input type="hidden" name="uId" [(ngModel)]="uId">
+  <input type="hidden" name="uName" [(ngModel)]="uName">
+  <input type="hidden" name="uEmail" [(ngModel)]="uEmail">
+  <ion-textarea autoGrow="true" name="uComment" [(ngModel)]="uComment" style="border: 1px solid grey"></ion-textarea>
+   <ion-button color="primary" size="small" (click)="sendComment()">
+    Enviar
+  </ion-button><small>&nbsp; &nbsp; &nbsp; Somente texto.</small>
+
+  <hr style="margin-top: 1rem;border-bottom: 3px dotted grey !important;">
+  <h4>Comentários</h4>
+
+  <div *ngFor="let comment of comments | async">
+    <ion-card class="ion-no-margin ion-margin-vertical">
+      <ion-card-header>
+        <ion-card-subtitle>{{comment.name}} em {{comment.date | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>{{comment.comment}}</ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+  <p>
+    <ion-button expand="block" color="warning" routerLink="/post">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Voltar para os Posts
+    </ion-button>
+  </p>
+
+
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+
+
+

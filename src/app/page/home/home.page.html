@@ -1,0 +1,95 @@
+<!-- Header -->
+
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/teste.png" style="width: 8
+        0px; height: 40px;" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal" *ngIf="items">
+
+  <h1><b>Home</b></h1>
+
+  <h4><b>Trilhas que você possa gostar</b></h4>
+
+   <img src="assets/tgavea.png" style="width: 50px; height: 50px;" alt="Triha da Gávea">
+      <div>
+        <b>Triha da Gávea</b>
+      </div>
+  <hr>
+    <img src="assets/tdois.png" style="width: 50px; height: 50px;" alt="Trilha dos Dois Irmãos">
+      <div>
+        <b>Trilha dos Dois Irmãos</b>
+      </div>
+  <hr>
+    <img src="assets/tperi.png" style="width: 50px; height: 50px;" alt="Trilha do Perigoso">
+      <div>
+        <b>Trilha do Perigoso</b>
+      </div>
+  <hr>
+
+<h4><b>Restaurantes</b></h4>
+
+    <img src="assets/rbene.png" style="width: 50px; height: 50px;" alt="Bene">
+      <div>
+        <b>Bene</b>
+      </div>
+  <hr>
+    <img src="assets/drp.png" style="width: 50px; height: 50px;" alt="Don Pascual">
+      <div>
+        <b>Don Pascual</b>
+      </div>
+  <hr>
+    <img src="assets/rflutuante.png" style="width: 50px; height: 50px;" alt="Flutuante Rio">
+      <div>
+        <b>Flutuante Rio</b>
+      </div>
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  <ion-slides pager="true"  [options]="option" class="ion-margin-top">
+    <ion-slide>
+      <ion-card>
+        <img src="assets/bar.jpg">
+      </ion-card>
+    </ion-slide>
+    
+    <ion-slide>
+      <ion-card>
+        <img src="assets/bar2.jpg">
+      </ion-card>
+    </ion-slide>
+  
+    <ion-slide>
+      <ion-card>
+        <img src="assets/bar1.jpg">
+      </ion-card>
+    </ion-slide>
+  
+    <ion-slide>
+      <ion-card>
+        <img src="assets/bar9.jpg">
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-card-header>
+      <h1><b>Bares</b></h1>
+      <ion-card-subtitle>Rio de Janeiro</ion-card-subtitle>
+      <ion-card-title>Quartinho Bar</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     O Quartinho Bar continua sendo um espaço dedicado aos sabores nordestinos. Eles estão bem presentes na 
+      carne de sol acebolada com aipim (R$ 41,00 a meia-porção) e no baião de dois 
+      (R$ 18,00 a meiaporção), coberto por queijo de coalho.
+      Botafogo segue sendo o lugar para se estar se você quer novidade, movimento e boa música. Não param de
+       abrir lugares bacanas nos quarteirões ao redor do lendário Bukowski e a pedida do momento é o Quartinho
+        um bar montado despojadamente (e por isso deu certo no Rio de Janeiro!) pelo artista Jonas Aisengart,
+         em parceria com Edu Mendes, proprietário do Café 18 do Forte.
+         <img src="assets/bar22.jpg">
+    </ion-card-content>
+  </ion-card>
+<ion-card>
+  <ion-card-content>
+    O cardápio, aliás, é simples e cozy para uma larica etílica: desde coxinha de frango com catupiry ou
+     croquete vegano a sanduíches com carne assada ou linguiça. Mas o must have é o empadão que vem em uma 
+     linda marmitinha. Além de versões de gin tônicas e coquetéis mais inusitados chamados de “especiais do
+      Quartinho”, o menu tem drinks que custam R$ 16 chamados de “Meus doces dezesseis” - todos exploram
+       sabores refrescantes e tropicais com um toque adocicado. Não quer saber de álcool hoje?  Jonas criou
+        uma carta ótima chamada chá & tônica. Corre que já tem fila todos os dias.
+    <img src="assets/bar11.jpg">
+  </ion-card-content>
+</ion-card>
+
+
+<h4><b>O Quartinho Bar se encontra no endereço:</b></h4> R. Arnaldo Quintela, 124 - Botafogo, Rio de Janeiro - RJ, 22280-070
+Telefone: (21) 2179-6447
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.8459979052336!2d-43.187042785033434!3d-22.955898084986853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f8d3ca9bf01%3A0xba55152a3fdfd005!2sQuartinho%20Bar!5e0!3m2!1spt-BR!2sbr!4v1628193065793!5m2!1spt-BR!2sbr" 
+width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+  <ion-content class="ion-padding-horizontal">
+
+ 
+
+    <hr style="border-bottom: 3px dotted grey !important;">
+   
+    <h5>Comente o que você achou aqui abaixo:</h5>
+    <p>Comente o que você achou aqui abaixo:</p>
+    <input type="hidden" name="uId" [(ngModel)]="uId">
+    <input type="hidden" name="uName" [(ngModel)]="uName">
+    <input type="hidden" name="uEmail" [(ngModel)]="uEmail">
+    <ion-textarea autoGrow="true" name="uComment" [(ngModel)]="uComment" style="border: 1px solid grey"></ion-textarea>
+     <ion-button color="primary" size="small" (click)="sendComment()">
+      Enviar
+    </ion-button><small>&nbsp; &nbsp; &nbsp; Somente texto.</small>
+  
+    <hr style="margin-top: 1rem;border-bottom: 3px dotted grey !important;">
+    <h4>Comentários</h4>
+  
+    <div *ngFor="let comment of comments | async">
+      <ion-card class="ion-no-margin ion-margin-vertical">
+        <ion-card-header>
+          <ion-card-subtitle>{{comment.name}} em {{comment.date | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>{{comment.comment}}</ion-card-content>
+      </ion-card>
+    </div>
+  
+  
+  
+    <p>
+      <ion-button expand="block" color="warning" routerLink="/post">
+        <ion-icon name="home" slot="start"></ion-icon>
+        Voltar para os Posts
+      </ion-button>
+    </p>
+    
+  
+
+
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Explorar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/search">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Buscar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/favorite">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/post">
+          <ion-icon name="camera-outline"></ion-icon>
+          <ion-label>Post</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+
+
+

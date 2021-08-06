@@ -1,0 +1,58 @@
+<!-- Header -->
+
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" style="width: 140px; height: 60px;" alt="viaggio" routerLink="/home">
+    </ion-buttons>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/teste.png" style="width: 130px; height: 50px;" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- Body -->
+
+<ion-content class="ion-padding-horizontal">
+
+  <ion-img src="assets/about.png" alt="Sobre" class="logotipo"></ion-img>
+
+  <p><b>Good Trip</b> objetivo do aplicativo é informar e indicar locais, restaurantes em todo Brasil que combine com diversas pessoas.</p>
+
+
+</ion-content>
+
+<!-- Footer -->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="explore">
+      <ion-icon name="earth-outline"></ion-icon>
+      <ion-label>Explorar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label>Buscar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="favorites">
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-label>Favoritos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="post">
+      <ion-icon name="camera-outline"></ion-icon>
+      <ion-label>Post</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
